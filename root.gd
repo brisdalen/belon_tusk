@@ -13,6 +13,7 @@ var score = 0;
 var can_drop
 # The number of pieces before they start turning static
 var static_limit = 5
+var chosen_texture = 0
 
 func _ready():
 	viewport = get_viewport()
@@ -36,6 +37,7 @@ func spawn_box(pos):
 	box_container.add_child(b)
 	b.position = pos
 	var num_of_children = box_container.get_child_count()
+	# Changes the 4th child to static mode. Change this to when the box lands within a certain threshold?
 	if num_of_children > static_limit:
 		box_container.get_child(num_of_children-(static_limit+1)).mode = 3
 	print(num_of_children)
